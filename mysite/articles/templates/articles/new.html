@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>글 작성 페이지</h1>
+<form action="{% url 'articles:create' %}" method="GET">
+  <label for="name">제목 : </label>
+  <input type="text" name="title" id="name">
+  <br/>
+  <label for="cnt">내용 : </label>
+  <textarea type="text" name="content" rows="5" cols="50"  id="cnt">
+
+  </textarea>
+  <br/>
+  <input type="submit" value="제출">
+</form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% block body %}
+  <h1>게시판</h1>
+  <hr>
+  <a href="{% url 'articles:new' %}">NEW</a>
+  &nbsp;
+  <a href="{% url 'articles:introduce' %}">Introduce</a>
+{% endblock %}
+
