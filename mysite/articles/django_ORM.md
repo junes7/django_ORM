@@ -30,6 +30,7 @@ article = Article.objects.all()
 **3. SELECT * FROM articles_article WHERE title='first'**
 ```python
 # 특정 제목 불러오기
+# 검색창에서 사용한다.
 Article.objects.filter(title='first')
 ```
 
@@ -42,6 +43,8 @@ Article.objects.filter(title='first')[0]
 
 **SELECT * FROM articles_article WHERE id=1**
 ```python
+# 하나의 객체에 접근한다.
+# 하나의 게시글에 접근해 원하는 정보를 얻길 원할 때 사용한다.
 Article.objects.get(id=1)
 Article.objects.get(pk=1)
 # 주의점
@@ -58,6 +61,15 @@ Article.objects.filter(title__contains='fir')
 Article.objects.filter(titile__startswith="se")
 #특정 문자열로 끝나는가
 Article.objects.filter(content__endswith='ha!')
+```
+
+**ASC / DESC**
+```python
+# 여기는 DB에서부터 순차와 역순으로 DB를 읽어들여 와서 출력해준다.
+Article.objects.all().order_by('pk')
+Article.objects.all().order_by('-pk')
+# 밑은 이미 DB에서 가지고 온 QuerySet을 python에서 처리한다.
+Article.objects.all()[::-1]
 ```
 ---
 ## UPDATE

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>게시글 상세 페이지</h1>
+<hr>
+<h3>{{article.pk}}번째 글</h3>
+<p>제목: {{ article.title }}</p>
+<p>내용: {{ article.content }}</p>
+<p>생성 시간: {{ article.created_at }}</p>
+<p>수정 시간: {{ article.updated_at }}</p>
+<hr>
+<a href="{% url 'articles:index' %}" target="_self">[back]</a>
+&nbsp;
+<a href="/articles/{{article.pk}}/delete/">[delete1]</a>
+<a href="{% url 'articles:delete' article.pk %}">[delete]</a>
+<a href="{% url 'articles:edit' article.pk %}">[edit]</a>
+{% endblock %}

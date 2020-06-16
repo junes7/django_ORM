@@ -1,18 +1,14 @@
-{% extends 'base.html' %}
-{% block body %}
-<h1>글 작성 페이지</h1>
-<form action="{% url 'articles:create' %}" method="POST">
+<form action="{% url 'articles:update' article.pk %}" method="POST">
   <!-- GET에서 POST로 변경하는 방법 method = "POST" -->
   <!-- CSRF 사이트 간 요청 위조  -->
   {% csrf_token %}
-  <label for="name">제목 : </label>
+  <label for="name">수정 제목 : </label>
   <input type="text" name="title" id="name">
   <br/>
-  <label for="cnt">내용 : </label>
+  <label for="cnt">수정 내용 : </label>
   <textarea type="text" name="content" rows="5" cols="50"  id="cnt">
 
   </textarea>
   <br/>
   <input type="submit" value="제출">
 </form>
-{% endblock %}
