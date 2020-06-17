@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<h3>[전생 직업 파악 페이지]</h3>
+<form action="{% url 'jobs:past_life' %}" method="POST">
+  <!-- GET에서 POST로 변경하는 방법 method = "POST" -->
+  <!-- CSRF 사이트 간 요청 위조  -->
+  {% csrf_token %}
+  <label for="name">사용자 이름 : </label>
+  <input type="text" name="username" id="name" placeholder="여기에 이름을 입력해주세요.">
+  <br/>
+  <div class="form-label-group">
+  <input type="submit" value="전생 직업 검색">
+  </div>
+</form>
+{% for person in persons %}
+  <h3> 이름: {{person.name}}
+  <h3> 전생직업: {{person.pastjob}}
+{% endfor %}
+{% endblock %}

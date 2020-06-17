@@ -9,8 +9,9 @@
   <!-- 여기에 작성할 것 -->
   {% for article in articles %}
     <h3>{{ article.pk }}번째 글</h3>
-    <p>제목 : <a href="{% url 'articles:detail' article.pk %}" target="_self">{{ article.title }}</a></p>
-    <a href="/articles/detail/{{article.pk}}/">{{ article.title }}</a>
+    <p>제목 : {{ article.title }}</p>
+    <a href="{% url 'articles:detail' article.pk %}" target="_self">[Detail]</a>
+    <!-- <a href="/articles/detail/{{article.pk}}/">[Detail]</a> -->
     <hr>
   {% endfor %}
 {% endblock %}

@@ -6,11 +6,11 @@
   <!-- CSRF 사이트 간 요청 위조  -->
   {% csrf_token %}
   <label for="name">제목 : </label>
-  <input type="text" name="title" id="name">
+  <input type="text" name="title" id="name" placeholder="여기에 제목을 입력해주세요.">
   <br/>
   <label for="cnt">내용 : </label>
-  <textarea type="text" name="content" rows="5" cols="50"  id="cnt">
-
+  <textarea type="text" name="content" rows="10" cols="50"  id="cnt">
+  여기에 내용을 입력해 주세요.
   </textarea>
   <br/>
   <input type="submit" value="제출">

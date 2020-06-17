@@ -8,9 +8,14 @@
 <p>생성 시간: {{ article.created_at }}</p>
 <p>수정 시간: {{ article.updated_at }}</p>
 <hr>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="[DELETE]">
+</form>
 <a href="{% url 'articles:index' %}" target="_self">[back]</a>
 &nbsp;
-<a href="/articles/{{article.pk}}/delete/">[delete1]</a>
+<!-- <a href="/articles/{{article.pk}}/delete/">[delete1]</a> -->
 <a href="{% url 'articles:delete' article.pk %}">[delete]</a>
+&nbsp;
 <a href="{% url 'articles:edit' article.pk %}">[edit]</a>
 {% endblock %}
